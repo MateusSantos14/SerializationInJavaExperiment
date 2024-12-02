@@ -18,7 +18,6 @@ public class Main {
             }
         });
 
-        // Thread para o cliente
         Thread clientThread = new Thread(() -> {
             try {
                 Thread.sleep(1000);
@@ -34,11 +33,9 @@ public class Main {
             }
         });
 
-        // Inicia as threads
         serverThread.start();
         clientThread.start();
 
-        // Aguarda as threads finalizarem (opcional)
         try {
             serverThread.join();
             clientThread.join();
