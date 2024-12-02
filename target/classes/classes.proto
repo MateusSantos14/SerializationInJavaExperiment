@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package socket.data;
+
+message PessoaProto {
+  string nome = 1;
+  string cidade = 2;
+  int64 telefone = 3;
+  int32 ano = 4;
+}
+
+
+message ContatosProto {
+  PessoaProto dono = 1;
+  repeated PessoaProto lista_de_contatos = 2;
+}
