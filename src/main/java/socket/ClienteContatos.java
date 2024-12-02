@@ -26,6 +26,8 @@ class ClienteContatos {
 		c1.adicionarContato(p2);
 		c1.adicionarContato(p3);
 		c1.adicionarContato(p4);
+
+		
 		//Objeto Serializado
 		System.out.println("CLIENTE OBJETO SERIALIZADO");
 		EnviarDados.enviarSerializado("localhost",6789,c1);

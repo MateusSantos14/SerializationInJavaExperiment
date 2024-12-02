@@ -17,6 +17,8 @@ class ClientePessoa {
 	public static void main(String[] args)  throws IOException, ClassNotFoundException, InterruptedException, JAXBException {
 
 		Pessoa p1 = new Pessoa("Joao da Silva", "Quixada", 999881122, 2012);
+		
+		
 		//Objeto Serializado
 		System.out.println("CLIENTE OBJETO SERIALIZADO");
 		EnviarDados.enviarSerializado("localhost",6789,p1);
