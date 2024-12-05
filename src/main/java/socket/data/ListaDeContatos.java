@@ -61,7 +61,7 @@ public class ListaDeContatos implements Serializable {
         }
         jsonObject.put("contatos", contatosArray);
 
-        return jsonObject.toString(4);
+        return jsonObject.toString();
     }
 
     public String toXml() {

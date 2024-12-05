@@ -1,6 +1,7 @@
-socket/data/Pessoa.class
-socket/data/ListaDeContatos.class
 socket/Main.class
-socket/ClienteContatos.class
-socket/ServidorPessoa.class
+socket/data/Pessoa.class
 socket/ClientePessoa.class
+socket/data/ListaDeContatos.class
+socket/ServidorPessoa.class
+socket/data/Classes$1.class
+socket/ClienteContatos.class

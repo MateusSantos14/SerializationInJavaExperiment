@@ -84,7 +84,7 @@ public class Pessoa implements Serializable {
 		jsonObject.put("cidade", this.cidade);
 		jsonObject.put("telefone", this.telefone);
 		jsonObject.put("ano", this.ano);
-		return jsonObject.toString(4); // Indentação de 4 espaços
+		return jsonObject.toString(); // Indentação de 4 espaços
 	}
 
 	public String toXml() throws JAXBException {
