@@ -9,6 +9,12 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.io.Serializable;
 import java.io.StringWriter;
 
@@ -71,6 +77,20 @@ public class Pessoa implements Serializable {
 		this.cidade = cidade;
 		this.telefone = telefone;
 		this.ano = ano;
+	}
+
+    public void writeObject(ObjectOutputStream o) throws IOException {
+		o.writeUTF(this.nome);
+		o.writeUTF(this.cidade);
+		o.writeInt(this.ano);
+		o.writeLong(this.telefone);
+	}
+
+	public void readObject(ObjectInputStream o) throws IOException, ClassNotFoundException {
+		this.nome = o.readUTF();
+		this.cidade = o.readUTF();
+		this.ano = o.readInt();
+		this.telefone = o.readLong();
 	}
 
 	@Override

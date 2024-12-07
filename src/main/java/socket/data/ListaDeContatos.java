@@ -9,6 +9,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -34,6 +38,23 @@ public class ListaDeContatos implements Serializable {
 
     public void adicionarContato(Pessoa contato) {
         contatos.add(contato);
+    }
+
+    public void writeObject(ObjectOutputStream o) throws IOException {
+        o.writeObject(this.dono);
+        o.writeInt(this.contatos.size());
+        for (Pessoa contato : contatos) {
+            o.writeObject(contato); 
+        }
+    }
+
+    public void readObject(ObjectInputStream o) throws IOException, ClassNotFoundException {
+        this.dono = (Pessoa) o.readObject();
+        int size = o.readInt();
+        this.contatos = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            this.contatos.add((Pessoa) o.readObject());
+        }
     }
 
 

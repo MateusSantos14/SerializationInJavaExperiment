@@ -33,8 +33,8 @@ Este projeto implementa comunicação entre cliente e servidor com objetivo de a
 
 ## Para Pessoa:
 
-`mvn exec:java -Dexec.mainClass="socket.Main" -Dexec.args="pessoa"`
+`./runpessoa.sh`
 
 ## Para Contatos:
 
-`mvn exec:java -Dexec.mainClass="socket.Main" -Dexec.args="contatos"`
+`./runcontatos.sh`

@@ -32,12 +32,10 @@ class ServidorPessoa {
 				System.out.println("SERVIDOR OBJETO OTIMIZADO:");
 				System.out.println("Recebido");
 				connectionSocket = listenSocket.accept();
-				in = new InputStreamReader(connectionSocket.getInputStream());
-				data = in.read();
-				while (data != -1) {
-					System.out.print((char)data);
-					data = in.read();
-				}
+				inFromClient = new ObjectInputStream(connectionSocket.getInputStream());
+				p = new Pessoa();
+				p.readObject(inFromClient);
+				System.out.println(p);
 				connectionSocket.close();
 
 

@@ -26,7 +26,7 @@ class ClientePessoa {
 		//Objeto Otimizado
 		Thread.sleep(2000);
 		System.out.println("CLIENTE OBJETO OTIMIZADO:");
-		EnviarDados.enviarString("localhost",6789,p1.toString());
+		EnviarDados.enviarSerializadoOtimizado("localhost",6789,p1);
 
 		//Json
 		Thread.sleep(2000);

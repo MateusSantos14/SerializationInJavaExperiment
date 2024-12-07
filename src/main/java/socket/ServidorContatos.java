@@ -3,6 +3,7 @@ package socket;
 import socket.data.Classes.ContatosProto;
 import socket.data.Classes.PessoaProto;
 import socket.data.ListaDeContatos;
+import socket.data.Pessoa;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,12 +33,10 @@ class ServidorContatos {
 				System.out.println("SERVIDOR OBJETO OTIMIZADO:");
 				System.out.println("Recebido");
 				connectionSocket = listenSocket.accept();
-				in = new InputStreamReader(connectionSocket.getInputStream());
-				data = in.read();
-				while (data != -1) {
-					System.out.print((char)data);
-					data = in.read();
-				}
+				inFromClient = new ObjectInputStream(connectionSocket.getInputStream());
+				c = new ListaDeContatos();
+				c.readObject(inFromClient);
+				System.out.println(c);
 				connectionSocket.close();
 
 

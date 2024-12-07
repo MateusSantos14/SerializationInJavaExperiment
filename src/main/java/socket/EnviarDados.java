@@ -28,6 +28,26 @@ public class EnviarDados {
 		clientSocket.close();
 
 	}
+	public static void enviarSerializadoOtimizado(String host, int port, Pessoa p) throws IOException{
+		Socket clientSocket;
+		clientSocket = new Socket(host, port);
+		OutputStream outputStream = clientSocket.getOutputStream();
+		ObjectOutputStream out = new ObjectOutputStream(outputStream);
+		System.out.println(p);
+		p.writeObject(out);
+		out.flush();
+		clientSocket.close();
+	}
+	public static void enviarSerializadoOtimizado(String host, int port, ListaDeContatos c) throws IOException{
+		Socket clientSocket;
+		clientSocket = new Socket(host, port);
+		OutputStream outputStream = clientSocket.getOutputStream();
+		ObjectOutputStream out = new ObjectOutputStream(outputStream);
+		System.out.println(c);
+		c.writeObject(out);
+		out.flush();
+		clientSocket.close();
+	}
 	public static void enviarString(String host, int port, String msg) throws IOException, ClassNotFoundException{
 		Socket clientSocket;
 		clientSocket = new Socket(host, port);
